@@ -2,7 +2,7 @@
 Isaac Overstreet Epicocdus Oct 2021 full time cohort
 
 ## Description:
-This appliction is used for showing projects that the user adds and also adding volunteers to each project to track who is on what project.
+This application is used for showing projects that the user adds and also adding volunteers to each project to track who is on what project.
 
 ## Technologies Used
 Bootstrap
@@ -21,8 +21,8 @@ Start a live server and in the URL bar type in the port number it gives you from
 Next, click on localhost:4567(or whatever number it gives you) in your session details to view project!
 Run docker-compose run --rm web bundle exec rspec to view test specs for unit testing and integration testing.
 (Mac)
-Run ruby app.rb in your terminal to open a localhost page to view application.
-Run rspec to run tests
+Run `ruby app.rb` in your terminal to open a localhost page to view application.
+Run `rspec` to run tests
 ENJOY!
 
 ## Known Bugs
