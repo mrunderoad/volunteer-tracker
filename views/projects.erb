@@ -1,0 +1,16 @@
+<h3>Available Projects</h3>
+<% if @projects.any? %>
+  <ul> <% @projects.each do |project| %>      
+    <li> <a href="/projects/<%= project.id %>"><strong><%= project.name %></strong></a> </li>
+  <% end %>
+  </ul>
+<% else %>
+  <p>There are currently no Projects to display.</p>
+<% end %>
+
+<a href="/projects/new"><button class="btn-success">Add a new Project</button></a>
+
+<form action="/projects" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" class="btn btn-danger">Remove ALL Projects?</button>
+</form>

@@ -23,100 +23,51 @@ delete('/projects') do
   redirect to('/projects')
 end
 
-get('/trains/user') do
-  @trains = Train.all
-  erb(:user_trains)
+get('/projects/new') do
+  erb(:new_project)
 end
 
-get('/trains/:id/destination') do
-  @train = Train.find(params[:id].to_i())
-  erb(:user_destinations)
+post('/projects') do
+  name = params[:project_name]
+  project = Project.new(name: name)
+  project.save()
+  @projects = Project.all
+  erb(:projects)
 end
 
-get('/trains/new') do
-  erb(:new_train)
+get('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
+  erb(:project)
 end
 
-post('/trains') do
-  name = params[:train_name]
-  train = Train.new(name: name)
-  train.save()
-  @trains = Train.all
-  erb(:trains)
+get('/projects/:id/edit') do
+  @project = Project.find(params[:id].to_i())
+  erb(:edit_project)
 end
 
-get('/trains/:id') do
-  @train = Train.find(params[:id].to_i())
-  erb(:train)
+patch('/projects/:id') do
+  @project = Project.find(params[:id].to_i())
+  @project.update({name: params[:name]})
+  @projects = Project.all
+  erb(:projects)
 end
 
-get('/trains/:id/edit') do
-  @train = Train.find(params[:id].to_i())
-  erb(:edit_train)
+delete('/projects/:id') do
+  @project = Project.find(params[:id].to_i)
+  @project.delete()
+  @projects = Project.all
+  erb(:projects)
 end
 
-patch('/trains/:id') do
-  @train = Train.find(params[:id].to_i())
-  @train.update({name: params[:name]})
-  @trains = Train.all
-  erb(:trains)
+get('/projects/:id/volunteers/:volunteer_id') do
+  @volunteer = Volunteer.find(params[:city_id].to_i())
+  erb(:volunteers)
 end
 
-delete('/trains/:id') do
-  @train = Train.find(params[:id].to_i)
-  @train.delete()
-  @trains = Train.all
-  erb(:trains)
-end
-
-get('/trains/:id/cities/:city_id') do
-  @city = City.find(params[:city_id].to_i())
-  erb(:city)
-end
-
-post('/trains/:id/cities') do
-  @train = Train.find(params[:id].to_i())
-  city = City.new({name: params[:city_name]})
-  city.save()
-  @train.update(city_name: city.name)
-  erb(:train)
-end
-
-get('/cities') do
-  @cities = City.all
-  erb(:cities)
-end
-
-get('/cities/user') do
-  @cities = City.all
-  erb(:user_cities)
-end
-
-delete('/cities') do
-  City.clear
-  redirect to('/cities')
-end
-
-get('/cities/:id') do
-  @city = City.find(params[:id].to_i)
-  erb(:city)
-end
-
-get('/cities/:id/user') do
-  @city = City.find(params[:id].to_i)
-  erb(:user_city)
-end
-
-patch('/cities/:id') do
-  city = City.find(params[:id].to_i())
-  city.update({name: params[:name]})
-  @cities = City.all
-  erb(:cities)
-end
-
-delete('/cities/:id') do
-  city = City.find(params[:id].to_i())
-  city.delete
-  @cities = City.all
-  erb(:cities)
+post('/projects/:id/volunteers') do
+  @project = Project.find(params[:id].to_i())
+  volunteer = Volunteer.new({name: params[:volunteer_name]})
+  volunteer.save()
+  @project.update(volunteer_name: volunteer.name)
+  erb(:project)
 end

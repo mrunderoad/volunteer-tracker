@@ -3,6 +3,8 @@ require "./app"
 require "pry"
 require('spec_helper')
 
+DB = PG.connect({ dbname: 'projects', host: 'db', user: 'postgres', password: 'password' })
+
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
