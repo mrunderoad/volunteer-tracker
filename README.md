@@ -11,15 +11,18 @@ Docker
 Sinatra
 rspec
 pry
+postgres
+psql
+capybara
 
 ## Setup/Installation Requirements
 Navigate to https://github.com/mrunderoad/volunteer-tracker and clone the repo onto your local machine.
 Open the project in VS code.
 (DOCKER)
-Run docker-compose up to get port number. example=port=4567
+Run `docker-compose up` to get port number. example=port=4567
 Start a live server and in the URL bar type in the port number it gives you from the previous step.
 Next, click on localhost:4567(or whatever number it gives you) in your session details to view project!
-Run docker-compose run --rm web bundle exec rspec to view test specs for unit testing and integration testing.
+Run `docker-compose run --rm web bundle exec rspec` to view test specs for unit testing and integration testing.
 (Mac)
 Run `ruby app.rb` in your terminal to open a localhost page to view application.
 Run `rspec` to run tests
@@ -31,7 +34,7 @@ No known bugs at this time.
 ### License
 MIT licensing @https://opensource.org/licenses/MIT
 
-Copyright (c) 12/17/2021 Isaac Overstreet
+Copyright (c) 12/26/2021 Isaac Overstreet
 
 
 
