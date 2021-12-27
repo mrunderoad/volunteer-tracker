@@ -1,6 +1,6 @@
 <h1>Update <%= @project.name() %></h1>
 
-<form action="/trains/<%= @train.id() %>" method="post">
+<form action="/projects/<%= @project.id() %>" method="post">
   <input name="_method" type="hidden" value="patch">
 
   <label for="name">Rename Project</label>
@@ -9,10 +9,10 @@
   <button type="submit">Update</button>
 </form>
 
-<form action="/trains/<%= @train.id() %>" method="post">
+<form action="/projects/<%= @project.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
   <button type="submit">Delete Project</button>
 </form>
 
-<p><a href="/trains">Return to Project list</a></p>
+<p><a href="/projects">Return to Project list</a></p>
